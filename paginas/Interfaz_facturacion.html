@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html data-bs-theme="auto" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Facturación</title>
+  <meta name="description" content="realice su solicitud de servicios aquí!">
+  <script>
+    !function() {
+      const getTheme = () => localStorage.getItem("theme");
+      const forcedTheme = document.documentElement.getAttribute("data-bss-forced-theme");
+      const getPreferredTheme = () => {
+        if (forcedTheme) return forcedTheme;
+        const stored = getTheme();
+        if (stored) return stored;
+        const attr = document.documentElement.getAttribute("data-bs-theme");
+        return attr || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      };
+      const setTheme = theme => {
+        if (theme === "auto" && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          document.documentElement.setAttribute("data-bs-theme", "dark");
+        } else {
+          document.documentElement.setAttribute("data-bs-theme", theme);
+        }
+      };
+      setTheme(getPreferredTheme());
+      const updateSwitcher = (theme, init = false) => {
+        const switchers = [].slice.call(document.querySelectorAll(".theme-switcher"));
+        if (switchers.length) {
+          document.querySelectorAll("[data-bs-theme-value]").forEach(e => {
+            e.classList.remove("active");
+            e.setAttribute("aria-pressed", "false");
+          });
+          for (const sw of switchers) {
+            const btn = sw.querySelector('[data-bs-theme-value="' + theme + '"]');
+            if (btn) {
+              btn.classList.add("active");
+              btn.setAttribute("aria-pressed", "true");
+            }
+          }
+        }
+      };
+      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+        const t = getTheme();
+        if (t !== "light" && t !== "dark") setTheme(getPreferredTheme());
+      });
+      window.addEventListener("DOMContentLoaded", () => {
+        updateSwitcher(getPreferredTheme());
+        document.querySelectorAll("[data-bs-theme-value]").forEach(e => {
+          e.addEventListener("click", t => {
+            t.preventDefault();
+            const val = e.getAttribute("data-bs-theme-value");
+            localStorage.setItem("theme", val);
+            setTheme(val);
+            updateSwitcher(val);
+          });
+        });
+      });
+    }();
+  </script>
+  <link rel="icon" type="image/png" sizes="499x499" href="/PMBackend/frontend/paginas/assets/img/favicon.png?h=9de85300ce36b5b57ce09c45939de319">
+  <link rel="icon" type="image/png" sizes="499x499" href="/PMBackend/frontend/paginas/assets/img/favicon.png?h=9de85300ce36b5b57ce09c45939de319" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/PMBackend/frontend/paginas/assets/css/styles.min.css?h=498d9d766cf55b8adaa45fc5e837e1eb">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+</head>
+<body>
+  <header>
+    <!-- Puedes agregar un menú o logo aquí si lo deseas -->
+  </header>
+  <main>
+    <section style="text-align: center;">
+      <h1 style="font-size: 45.9px;">Facturación</h1>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 d-lg-flex align-items-lg-end" style="text-align: left;margin-bottom: 6px;">
+            <div class="d-inline-flex justify-content-center align-items-center align-content-center justify-content-lg-center align-items-lg-center" style="width: 178.2px;text-align: center;">
+              <label class="form-label mb-0 ms-0" style="font-size: 21px;">Cliente:&nbsp;</label>
+              <p style="width: 50%;font-size: 23px;" class="mb-0">nombre</p>
+            </div>
+          </div>
+          <div class="col d-lg-flex" style="text-align: left;">
+            <div style="width: 100%;">
+              <label class="form-label mb-0 ms-1" style="font-size: 22px;">ID Solicitud&nbsp;</label>
+              <input type="text" style="width: 14%;height: 31.5px;border-radius: 8px;">
+            </div>
+          </div>
+        </div>
+        <div class="row" style="margin-top: 41px;">
+          <div class="col">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Column 1</th>
+                    <th>Column 2</th>
+                    <th>Column 3</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Cell 1</td>
+                    <td>Cell 2</td>
+                    <td>Cell 5</td>
+                  </tr>
+                  <tr>
+                    <td>Cell 3</td>
+                    <td>Cell 4</td>
+                    <td>Cell 6</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-5 d-md-flex justify-content-md-end align-items-md-center">
+            <button class="btn btn-primary" data-bss-disabled-mobile="true" data-bss-hover-animate="rubberBand" type="button" style="height: 76.6px;width: 194px;right: 15px;position: relative;background: #373e40;font-size: 18px;transition: ease-in-out;color: #ffff;">Facturar</button>
+          </div>
+          <div class="col d-flex">
+            <div style="width: 63%;">
+              <label class="form-label" style="width: 43%;">Sub Total:</label>
+              <input type="text" style="background: rgba(255,255,255,0);width: 57%;border-style: none;border-bottom-style: solid;border-bottom-color: #000000;">
+              <label class="form-label" style="width: 43%;">Descuento:</label>
+              <input type="text" style="background: rgba(255,255,255,0);width: 57%;border-style: none;border-bottom-style: solid;border-bottom-color: #000000;">
+              <label class="form-label" style="width: 43%;">Iva:</label>
+              <input type="text" style="background: rgba(255,255,255,0);width: 57%;border-style: none;border-bottom-style: solid;border-bottom-color: #000000;">
+              <label class="form-label" style="width: 43%;">Tot. a Pagar:</label>
+              <input type="text" style="background: rgba(255,255,255,0);width: 57%;border-style: none;border-bottom-style: solid;border-bottom-color: #000000;">
+              <label class="form-label" style="width: 43%;">Efectivo</label>
+              <input type="text" style="background: rgba(255,255,255,0);width: 57%;border-style: none;border-bottom-style: solid;border-bottom-color: #000000;">
+              <label class="form-label" style="width: 43%;">Cambio:</label>
+              <input type="text" style="background: rgba(255,255,255,0);width: 57%;border-style: none;border-bottom-style: solid;border-bottom-color: #000000;">
+            </div>
+            <div class="d-md-flex align-items-md-end" style="width: 37%;text-align: right;">
+              <button class="btn btn-primary" type="button" style="position: relative;bottom: 19px;left: 9px;width: 157px;background: #373e40;box-shadow: 0px 0px;color: #ffffff;">Calcular Cambio</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container py-4 py-lg-5">
+      <div class="row justify-content-center">
+        <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
+          <h3 class="fs-6">Políticas&nbsp;</h3>
+          <ul class="list-unstyled">
+            <li><a class="link-secondary" href="/PMBackend/frontend/paginas/politicas_privacidad.html">Políticas de privacidad</a></li>
+            <li><a class="link-secondary" href="/PMBackend/frontend/paginas/terminos_servicio.html">Términos de servicios</a></li>
+            <li><a class="link-secondary" href="/PMBackend/frontend/paginas/formulario_contacto.html">Formulario de contacto</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
+          <h3 class="fs-6">Links útiles</h3>
+          <ul class="list-unstyled">
+            <li><a class="link-secondary" href="/PMBackend/frontend/paginas/index.html">Pagina principal</a></li>
+            <li><a class="link-secondary" href="/PMBackend/frontend/paginas/Interfaz_facturacion.html">Facturación</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 text-center text-lg-start d-flex flex-column align-items-center order-first align-items-lg-start order-lg-last item social">
+          <div class="fw-bold d-flex align-items-center mb-2">
+            <span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center bs-icon me-2" style="--bs-primary: #007443;--bs-primary-rgb: 0,116,67;">
+              <!-- SVG icon -->
+            </span>
+            <span>Papasito's&nbsp;</span>
+          </div>
+          <p class="text-muted copyright">Papasito's Mechanics: Los mejores en mantenimiento y reparaciones</p>
+        </div>
+      </div>
+      <hr>
+      <div class="d-flex justify-content-between align-items-center pt-3">
+        <p class="text-muted mb-0">Copyright © 2025 Papasito's Mechanics</p>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/PMBackend/frontend/paginas/assets/js/script.min.js?h=bfb49eee47f0544059cc5a9c6945ad45"></script>
+</body>
+</html>

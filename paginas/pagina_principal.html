@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html data-bs-theme="auto" lang="en" style="font-family: sans-serif;">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Papasito´s Mechanics</title>
+  <meta name="description" content="Los mejores en reparaciones">
+
+  <!-- SEO Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": "Papasito's Mechanics",
+      "url": "https://papasitosmechanics"
+    }
+  </script>
+
+  <!-- Theme Switcher Script -->
+  <script>
+    !function() {
+      const getTheme = () => localStorage.getItem("theme");
+      const forcedTheme = document.documentElement.getAttribute("data-bss-forced-theme");
+      const getPreferredTheme = () => {
+        if (forcedTheme) return forcedTheme;
+        const stored = getTheme();
+        if (stored) return stored;
+        const attr = document.documentElement.getAttribute("data-bs-theme");
+        return attr || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      };
+      const setTheme = theme => {
+        if (theme === "auto" && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          document.documentElement.setAttribute("data-bs-theme", "dark");
+        } else {
+          document.documentElement.setAttribute("data-bs-theme", theme);
+        }
+      };
+      setTheme(getPreferredTheme());
+      const updateSwitcher = (theme, init = false) => {
+        const switchers = [].slice.call(document.querySelectorAll(".theme-switcher"));
+        if (switchers.length) {
+          document.querySelectorAll("[data-bs-theme-value]").forEach(e => {
+            e.classList.remove("active");
+            e.setAttribute("aria-pressed", "false");
+          });
+          for (const sw of switchers) {
+            const btn = sw.querySelector('[data-bs-theme-value="' + theme + '"]');
+            if (btn) {
+              btn.classList.add("active");
+              btn.setAttribute("aria-pressed", "true");
+            }
+          }
+        }
+      };
+      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+        const t = getTheme();
+        if (t !== "light" && t !== "dark") setTheme(getPreferredTheme());
+      });
+      window.addEventListener("DOMContentLoaded", () => {
+        updateSwitcher(getPreferredTheme());
+        document.querySelectorAll("[data-bs-theme-value]").forEach(e => {
+          e.addEventListener("click", t => {
+            t.preventDefault();
+            const val = e.getAttribute("data-bs-theme-value");
+            localStorage.setItem("theme", val);
+            setTheme(val);
+            updateSwitcher(val);
+          });
+        });
+      });
+    }();
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="499x499" href="/assets/img/favicon.png?h=9de85300ce36b5b57ce09c45939de319">
+  <link rel="icon" type="image/png" sizes="499x499" href="/assets/img/favicon.png?h=9de85300ce36b5b57ce09c45939de319" media="(prefers-color-scheme: dark)">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/PMBackend/frontend/paginas/assets/css/styles.min.css?h=3db5ebd400e11eafc73e3b46136ed280">
+</head>
+<body style="font-family: sans-serif;">
+
+  <!-- Header -->
+  <header>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-md bg-dark py-3" data-bs-theme="dark" style="background: #373e40;">
+        <div class="container"><button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navcol-5"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div id="navcol-5" class="collapse navbar-collapse"><label class="form-label client-name" style="color: var(--bs-light);">Label</label>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                </ul><a class="btn btn-primary ms-md-2 btn-logout" role="button" style="background: #305252;">Cerrar sesión</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Banner Heading Image -->
+    <section class="py-4 py-xl-5">
+      <div class="container">
+        <div class="bg-dark border rounded border-0 border-dark overflow-hidden" style="overflow-y: visible;">
+          <div class="row g-0" style="background: #373e40;">
+            <div class="col-md-6 col-lg-4">
+              <div class="text-start text-white d-flex flex-column justify-content-center p-4 p-md-5 h-100">
+                <h2 class="fw-bold text-white mb-3">Papasitos's Mechanics</h2>
+                <p class="mb-4">Los mejores en mantenimiento y reparaciones</p>
+              </div>
+            </div>
+            <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
+              <img class="w-100 h-100 fit-cover" src="/PMBackend/frontend/paginas/assets/img/Singer_Porsche_964_Engine-removebg-preview.png?h=3db5ebd400e11eafc73e3b46136ed280" width="468" height="413" style="filter: brightness(80%);">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div style="width: 100%;text-align: center;">
+      <!-- Sobre Nosotros -->
+      <div class="container text-center py-4 py-xl-5" id="link_comp">
+        <div class="row mb-5">
+          <div class="col-md-8 col-lg-10 col-xl-6 text-center mx-auto">
+            <h2><strong>Sobre Nosotros</strong></h2>
+            <p class="w-lg-50">
+              En Papasito's Mechanics, nos apasiona el mundo automotriz y trabajamos cada día para ofrecerte un servicio de mecánica automotriz confiable, rápido y eficiente. Con más de 10 años de experiencia en el sector, nuestro equipo de técnicos altamente capacitados está listo para atender cualquier necesidad de tu vehículo, desde mantenimiento preventivo hasta reparaciones complejas.
+            </p>
+          </div>
+        </div>
+        <div class="row gy-4 row-cols-1 row-cols-md-2" id="link_mis_contcal">
+          <div class="col-12 col-md-6">
+            <div>
+              <img class="rounded img-fluid d-block w-100 fit-cover" style="height: 200px;overflow-y: hidden;" src="/PMBackend/frontend/paginas/assets/img/vision-y-mision.jpg?h=533e4ebc44dd413d095228683b916f0b">
+              <div class="py-4">
+                <h4>Misión y Objetivo&nbsp;</h4>
+                <ul>
+                  <li>Misión: asegurar la máxima calidad en cada servicio, priorizando la seguridad y satisfacción del cliente.&nbsp;</li>
+                  <li>Objetivo: Optimizar procesos para ofrecer reparaciones y mantenimientos con los más altos estándares&nbsp;de&nbsp;calidad.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div>
+              <img class="rounded img-fluid d-block w-100 fit-cover" style="height: 200px;overflow-y: hidden;" src="/PMBackend/frontend/paginas/assets/img/Controld%20de%20Calidad.jpg?h=053836964eaf28c20fd84349aac23a56">
+              <div class="py-4">
+                <h4>Control de calidad</h4>
+                <p>
+                  En nuestro taller, cada detalle cuenta. Nos enfocamos en un control de calidad exhaustivo para garantizar que cada reparación y mantenimiento que no solo cumpla, sino que supere las expectativas de seguridad, durabilidad y rendimiento de tu vehículo.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Opiniones de clientes -->
+      <div class="container py-4 py-xl-5">
+        <div class="row mb-5">
+          <div class="col-md-8 col-xl-6 text-center mx-auto">
+            <h2><strong>Opiniones de nuestros clientes</strong></h2>
+          </div>
+        </div>
+        <div class="row gy-4 row-cols-1 row-cols-md-2">
+          <!-- Opinión 1 -->
+          <div class="col">
+            <div class="d-flex flex-column flex-lg-row">
+              <div class="py-4 py-lg-0 px-lg-4">
+                <h4 style="text-align: left;"><strong>Ezequiel Montoya</strong></h4>
+                <div class="d-table-cell rating" style="width: 100%;">
+                  <input class="order-first" type="radio" id="star5" name="rate" value="5"><label class="form-label" for="star5" title="text"></label>
+                  <input type="radio" id="star4" name="rate" value="4"><label class="form-label" for="star4" title="text"></label>
+                  <input type="radio" id="star3" name="rate" value="4"><label class="form-label" for="star3" title="text"></label>
+                  <input type="radio" id="star2" name="rate" value="2"><label class="form-label" for="star2" title="text"></label>
+                  <input type="radio" id="star1" name="rate" value="1"><label class="form-label" for="star1" title="text"></label>
+                </div>
+                <p style="text-align: justify;font-family: sans-serif;">
+                  Increíble servicio. Llevé mi auto con un problema eléctrico que nadie podía solucionar y en un par de horas lo dejaron como nuevo. Muy profesionales y transparentes con los costos. 100% recomendado.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Opinión 2 -->
+          <div class="col">
+            <div class="d-flex flex-column flex-lg-row">
+              <div class="py-4 py-lg-0 px-lg-4">
+                <h4 style="text-align: left;"><strong>Amara Velásquez</strong></h4>
+                <div class="d-table-cell rating" style="width: 100%;">
+                  <input class="order-first" type="radio" id="star5-1" name="rate1" value="5"><label class="form-label" for="star5-1" title="text"></label>
+                  <input type="radio" id="star4-1" name="rate1" value="4"><label class="form-label" for="star4-1" title="text"></label>
+                  <input type="radio" id="star3-1" name="rate1" value="4"><label class="form-label" for="star3-1" title="text"></label>
+                  <input type="radio" id="star2-1" name="rate1" value="2"><label class="form-label" for="star2-1" title="text"></label>
+                  <input type="radio" id="star1-1" name="rate1" value="1"><label class="form-label" for="star1-1" title="text"></label>
+                </div>
+                <p style="text-align: justify;font-family: sans-serif;">
+                  Honestamente, no confiaba en los talleres porque siempre me querían cobrar de más, pero aquí me explicaron todo con detalle y el precio fue justo. Mi coche quedó impecable. ¡Gracias por su excelente trabajo!
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Opinión 3 -->
+          <div class="col">
+            <div class="d-flex flex-column flex-lg-row">
+              <div class="py-4 py-lg-0 px-lg-4">
+                <h4 style="text-align: left;"><strong>Gael Zárate</strong></h4>
+                <div class="d-table-cell rating" style="width: 100%;">
+                  <input class="order-first" type="radio" id="star5-2" name="rate2" value="5"><label class="form-label" for="star5-2" title="text"></label>
+                  <input type="radio" id="star4-2" name="rate2" value="4"><label class="form-label" for="star4-2" title="text"></label>
+                  <input type="radio" id="star3-2" name="rate2" value="4"><label class="form-label" for="star3-2" title="text"></label>
+                  <input type="radio" id="star2-2" name="rate2" value="2"><label class="form-label" for="star2-2" title="text"></label>
+                  <input type="radio" id="star1-2" name="rate2" value="1"><label class="form-label" for="star1-2" title="text"></label>
+                </div>
+                <p style="text-align: justify;font-family: sans-serif;">
+                  Buen servicio y atención. Se tardaron un poco más de lo esperado, pero valió la pena porque mi carro quedó perfecto. Volvería sin duda.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Opinión 4 -->
+          <div class="col">
+            <div class="d-flex flex-column flex-lg-row">
+              <div class="py-4 py-lg-0 px-lg-4">
+                <h4 style="text-align: left;"><strong>Nadia Ferreira</strong></h4>
+                <div class="d-table-cell rating" style="width: 100%;">
+                  <input class="order-first" type="radio" id="star5-3" name="rate3" value="5"><label class="form-label" for="star5-3" title="text"></label>
+                  <input type="radio" id="star4-3" name="rate3" value="4"><label class="form-label" for="star4-3" title="text"></label>
+                  <input type="radio" id="star3-3" name="rate3" value="4"><label class="form-label" for="star3-3" title="text"></label>
+                  <input type="radio" id="star2-3" name="rate3" value="2"><label class="form-label" for="star2-3" title="text"></label>
+                  <input type="radio" id="star1-3" name="rate3" value="1"><label class="form-label" for="star1-3" title="text"></label>
+                </div>
+                <p style="text-align: justify;font-family: sans-serif;">
+                  ¡Maravilloso! Me salvaron cuando mi coche se apagó en plena carretera. Fueron rápidos en la asistencia y el diagnóstico fue preciso. Ahora sé dónde traer mi auto siempre.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Opinión 5 -->
+          <div class="col">
+            <div class="d-flex flex-column flex-lg-row">
+              <div class="py-4 py-lg-0 px-lg-4">
+                <h4 style="text-align: left;"><strong>Salvador Ordoñez&nbsp;</strong></h4>
+                <div class="d-table-cell rating" style="width: 100%;">
+                  <input class="order-first" type="radio" id="star5-4" name="rate4" value="5"><label class="form-label" for="star5-4" title="text"></label>
+                  <input type="radio" id="star4-4" name="rate4" value="4"><label class="form-label" for="star4-4" title="text"></label>
+                  <input type="radio" id="star3-4" name="rate4" value="4"><label class="form-label" for="star3-4" title="text"></label>
+                  <input type="radio" id="star2-4" name="rate4" value="2"><label class="form-label" for="star2-4" title="text"></label>
+                  <input type="radio" id="star1-4" name="rate4" value="1"><label class="form-label" for="star1-4" title="text"></label>
+                </div>
+                <p style="text-align: justify;font-family: sans-serif;">
+                  Llevo años trayendo mis autos aquí y nunca me han fallado. Son eficientes, confiables y muy amables. No hay mejor taller en la ciudad.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Opinión 6 -->
+          <div class="col">
+            <div class="d-flex flex-column flex-lg-row">
+              <div class="py-4 py-lg-0 px-lg-4">
+                <h4 style="text-align: left;"><strong>Iskra Domínguez&nbsp;</strong></h4>
+                <div class="d-table-cell rating" style="width: 100%;">
+                  <input class="order-first" type="radio" id="star5-5" name="rate5" value="5"><label class="form-label" for="star5-5" title="text"></label>
+                  <input type="radio" id="star4-5" name="rate5" value="4"><label class="form-label" for="star4-5" title="text"></label>
+                  <input type="radio" id="star3-5" name="rate5" value="4"><label class="form-label" for="star3-5" title="text"></label>
+                  <input type="radio" id="star2-5" name="rate5" value="2"><label class="form-label" for="star2-5" title="text"></label>
+                  <input type="radio" id="star1-5" name="rate5" value="1"><label class="form-label" for="star1-5" title="text"></label>
+                </div>
+                <p style="text-align: justify;font-family: sans-serif;">
+                  Muy buen taller, tienen repuestos de calidad y los mecánicos realmente saben lo que hacen. Solo mejoraría el tiempo de espera, pero fuera de eso, todo excelente.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reserva tu cita -->
+      <div class="text-center">
+        <section class="py-4 py-xl-5">
+          <div class="container">
+            <div class="bg-dark border rounded border-0 border-dark overflow-hidden">
+              <div class="row g-0" style="background: #373e40;">
+                <div class="col-md-6 col-xl-6">
+                  <div class="text-white d-flex flex-column justify-content-center p-4 p-md-5 h-100">
+                    <h2 class="fw-bold text-white mb-3">¿Tienes algún problema con tu vehículo?<br>¡Reserva tu cita ya!</h2>
+                    <p class="mb-4">
+                      <br>"Tu seguridad es nuestra prioridad. ¡Reserva ahora!" 🔧🔝<br><br>
+                    </p>
+                    <div class="my-3">
+                      <a class="btn btn-light btn-lg" role="button" href="/PMBackend/frontend/paginas/solicitud_servicio.html">Click aquí para reservar</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
+                  <img class="w-100 h-100 fit-cover" src="/PMBackend/frontend/paginas/assets/img/Pagina%20de%20solicitud%20de%20citas..jpg?h=8820f1a1873fdde95add72d245c17669" width="558" height="558">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container py-4 py-lg-5">
+      <div class="row justify-content-center" style="box-shadow: 0px 0px;">
+        <!-- Políticas -->
+        <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
+          <h3 class="fs-6">Políticas&nbsp;</h3>
+          <ul class="list-unstyled">
+            <li><a class="link-secondary" href="/PMBackend/frontend/paginas/politicas_privacidad.html">Políticas de privacidad</a></li>
+            <li><a class="link-secondary" id="term_unactive" href="/PMBackend/frontend/paginas/terminos_servicio.html">Términos de servicios</a></li>
+            <li><a class="link-secondary" href="/PMBackend/frontend/paginas/formulario_contacto.html">Formulario de contacto</a></li>
+          </ul>
+        </div>
+        <!-- Links útiles -->
+        <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item" style="border-color: rgb(33, 37, 41);">
+          <h3 class="fs-6">Links útiles</h3>
+          <ul class="list-unstyled">
+            <li><a class="link-secondary" href="#link_comp">Nuestro compromiso</a></li>
+            <li><a class="link-secondary" href="#link_mis_contcal">Misión y objetivo</a></li>
+            <li><a class="link-secondary" href="#link_mis_contcal">Control de calidad</a></li>
+          </ul>
+        </div>
+        <!-- Social Icons -->
+        <div class="col-lg-3 text-center text-lg-start d-flex flex-column align-items-center order-first align-items-lg-start order-lg-last item social">
+          <div class="fw-bold d-flex align-items-center mb-2">
+            <span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center bs-icon me-2" style="--bs-primary: #007443;--bs-primary-rgb: 0,116,67;">
+              <!-- SVG icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-bezier">
+                <path fill-rule="evenodd" d="M0 10.5A1.5 1.5 0 0 1 1.5 9h1A1.5 1.5 0 0 1 4 10.5v1A1.5 1.5 0 0 1 2.5 13h-1A1.5 1.5 0 0 1 0 11.5zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm10.5.5A1.5 1.5 0 0 1 13.5 9h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM6 4.5A1.5 1.5 0 0 1 7.5 3h1A1.5 1.5 0 0 1 10 4.5v1A1.5 1.5 0 0 1 8.5 7h-1A1.5 1.5 0 0 1 6 5.5zM7.5 4a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z"></path>
+                <path d="M6 4.5H1.866a1 1 0 1 0 0 1h2.668A6.517 6.517 0 0 0 1.814 9H2.5c.123 0 .244.015.358.043a5.517 5.517 0 0 1 3.185-3.185A1.503 1.503 0 0 1 6 5.5zm3.957 1.358A1.5 1.5 0 0 0 10 5.5v-1h4.134a1 1 0 1 1 0 1h-2.668a6.517 6.517 0 0 1 2.72 3.5H13.5c-.123 0-.243.015-.358.043a5.517 5.517 0 0 0-3.185-3.185z"></path>
+              </svg>
+            </span>
+            <span>Papasito's&nbsp;</span>
+          </div>
+          <p class="text-muted copyright">Papasito's Mechanics: Los mejores en mantenimiento y reparaciones</p>
+        </div>
+      </div>
+      <hr>
+      <div class="d-flex justify-content-between align-items-center pt-3">
+        <p class="text-muted mb-0">Copyright © 2025 Papasito's Mechanics</p>
+        <ul class="list-inline mb-0">
+          <li class="list-inline-item">
+            <!-- Facebook SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-facebook">
+              <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"></path>
+            </svg>
+          </li>
+          <li class="list-inline-item">
+            <!-- Twitter SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-twitter">
+              <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15"></path>
+            </svg>
+          </li>
+          <li class="list-inline-item">
+            <!-- Instagram SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-instagram">
+              <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"></path>
+            </svg>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+   <script src="/PMBackend/frontend/paginas/js/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/PMBackend/frontend/paginas/assets/js/script.min.js?h=bfb49eee47f0544059cc5a9c6945ad45"></script>
+  <!--<script>
+  // Si no hay id_cliente en localStorage, redirige al login
+  if (!localStorage.getItem('isLoggedIn')) {
+    window.location.href = "/PMBackend/frontend/paginas/js/script.js";
+  }
+</script>-->
+</body>
+</html>

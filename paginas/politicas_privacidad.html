@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html data-bs-theme="auto" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Política de Privacidad</title>
+  <meta name="description" content="realice su solicitud de servicios aquí!">
+  <script>
+    !function() {
+      const getTheme = () => localStorage.getItem("theme");
+      const forcedTheme = document.documentElement.getAttribute("data-bss-forced-theme");
+      const getPreferredTheme = () => {
+        if (forcedTheme) return forcedTheme;
+        const stored = getTheme();
+        if (stored) return stored;
+        const attr = document.documentElement.getAttribute("data-bs-theme");
+        return attr || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      };
+      const setTheme = theme => {
+        if (theme === "auto" && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          document.documentElement.setAttribute("data-bs-theme", "dark");
+        } else {
+          document.documentElement.setAttribute("data-bs-theme", theme);
+        }
+      };
+      setTheme(getPreferredTheme());
+      const updateSwitcher = (theme, init = false) => {
+        const switchers = [].slice.call(document.querySelectorAll(".theme-switcher"));
+        if (switchers.length) {
+          document.querySelectorAll("[data-bs-theme-value]").forEach(e => {
+            e.classList.remove("active");
+            e.setAttribute("aria-pressed", "false");
+          });
+          for (const sw of switchers) {
+            const btn = sw.querySelector('[data-bs-theme-value="' + theme + '"]');
+            if (btn) {
+              btn.classList.add("active");
+              btn.setAttribute("aria-pressed", "true");
+            }
+          }
+        }
+      };
+      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+        const t = getTheme();
+        if (t !== "light" && t !== "dark") setTheme(getPreferredTheme());
+      });
+      window.addEventListener("DOMContentLoaded", () => {
+        updateSwitcher(getPreferredTheme());
+        document.querySelectorAll("[data-bs-theme-value]").forEach(e => {
+          e.addEventListener("click", t => {
+            t.preventDefault();
+            const val = e.getAttribute("data-bs-theme-value");
+            localStorage.setItem("theme", val);
+            setTheme(val);
+            updateSwitcher(val);
+          });
+        });
+      });
+    }();
+  </script>
+  <link rel="icon" type="image/png" sizes="499x499" href="/PMBackend/frontend/paginas/assets/img/favicon.png?h=9de85300ce36b5b57ce09c45939de319">
+  <link rel="icon" type="image/png" sizes="499x499" href="/PMBackend/frontend/paginas/assets/img/favicon.png?h=9de85300ce36b5b57ce09c45939de319" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/PMBackend/frontend/paginas/assets/css/styles.min.css?h=498d9d766cf55b8adaa45fc5e837e1eb">
+</head>
+<body>
+  <header>
+    <h1 id="link_polit" class="mt-5" style="text-align: center;">
+      <strong><span style="color: rgb(0, 0, 0);">Política de Privacidad</span></strong>
+    </h1>
+  </header>
+  <main>
+    <section>
+      <div class="py-4 py-lg-5 container" style="padding-right: 12px;padding-left: 12px;">
+        <h5 style="margin-top: 66px;" class="mt-2 mb-2"><strong>1. Política de privacidad&nbsp;</strong></h5>
+        <p style="font-size: 13px;font-family: sans-serif;">
+          En Papasito's Mechanics, valoramos y respetamos la privacidad de nuestros clientes y visitantes. Esta Política de Privacidad explica cómo recopilamos, utilizamos y protegemos la información personal que proporcionas cuando utilizas nuestro sitio web www.papasitosmechanics.com.
+        </p>
+        <h5 style="margin-top: 38px;"><strong>2. Información que recopilamos</strong></h5>
+        <p style="font-size: 13px;font-family: sans-serif;">
+          Podemos recopilar diferentes tipos de información, incluyendo:<br><br>
+          <strong>• Datos personales:</strong> Nombre, número de teléfono, dirección de correo electrónico y otra información proporcionada en el formulario de 
+          <a href="/PMBackend/frontend/paginas/solicitud_servicio.html">solicitud de citas</a>.<br>
+          <strong>• Datos de vehículos:</strong> Modelo, año, placa y detalles de mantenimiento proporcionados en nuestros formularios.<br>
+          <strong>• Datos de navegación:</strong> Información sobre cómo interactúas con nuestro sitio, como dirección IP, tipo de navegador y páginas visitadas.
+        </p>
+        <h5 style="margin-top: 38px;"><strong>3. Uso de la información</strong></h5>
+        <p style="font-size: 13px;font-family: sans-serif;">
+          Utilizamos la información recopilada para los siguientes fines:<br><br>
+          <strong>•&nbsp;</strong>Procesar solicitudes de citas y servicios mecánicos.<br>
+          <strong>•&nbsp;</strong>Enviar confirmaciones, recordatorios o notificaciones sobre el estado de tu vehículo.<br>
+          <strong>•&nbsp;</strong>Mejorar la experiencia del usuario en nuestro sitio web.<br>
+          <strong>•&nbsp;</strong>Cumplir con obligaciones legales y de seguridad.
+        </p>
+        <h5 style="margin-top: 38px;"><strong>4. Protección de datos</strong></h5>
+        <p style="font-size: 13px;font-family: sans-serif;">
+          Implementamos medidas de seguridad adecuadas para proteger tu información contra accesos no autorizados, pérdidas o alteraciones. Sin embargo, ten en cuenta que ninguna transmisión de datos por internet es completamente segura.
+        </p>
+        <h5 style="margin-top: 38px;"><strong>5. Compartición de la información&nbsp;</strong></h5>
+        <p style="font-size: 13px;font-family: sans-serif;">
+          No vendemos, alquilamos ni compartimos tu información personal con terceros, excepto en los siguientes casos:<br><br>
+          <strong>•&nbsp;</strong>Para cumplir con requisitos legales o solicitudes de autoridades competentes.<br>
+          <strong>•&nbsp;</strong>Con proveedores de servicios que nos ayudan a operar nuestro negocio, siempre bajo acuerdos de confidencialidad.
+        </p>
+        <h5 style="margin-top: 38px;"><strong>6. Derechos del usuario&nbsp;</strong></h5>
+        <p style="font-size: 13px;font-family: sans-serif;">
+          Tienes derecho a acceder, corregir o eliminar tus datos personales. Para ejercer estos derechos, puedes contactarnos a través de papasitosmechanics@pmechanics.com.&nbsp;
+        </p>
+        <h5 style="margin-top: 38px;"><strong>7. Cambios en la política de privacidad&nbsp;</strong></h5>
+        <p style="font-size: 13px;font-family: sans-serif;">
+          Nos reservamos el derecho de modificar esta política en cualquier momento. Te notificaremos sobre cambios importantes mediante un aviso en nuestro sitio web.<br>
+          Si tienes alguna pregunta sobre nuestra Política de Privacidad, contáctanos en&nbsp;papasitosmechanics@pmechanics.com.
+        </p>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container py-4 py-lg-5">
+      <div class="row justify-content-center" style="box-shadow: 0px 0px;">
+        <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
+          <h3 class="fs-6">Políticas&nbsp;</h3>
+          <ul class="list-unstyled">
+            <li><a class="link-secondary" href="/PMBackend/frontend/paginas/politicas_privacidad.html">Políticas de privacidad</a></li>
+            <li><a class="link-secondary" id="term_unactive" href="/PMBackend/frontend/paginas/terminos_servicio.html">Términos de servicios</a></li>
+            <li><a class="link-secondary" href="/PMBackend/frontend/paginas/formulario_contacto.html">Formulario de contacto</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item" style="border-color: rgb(33, 37, 41);">
+          <h3 class="fs-6">Links útiles</h3>
+          <ul class="list-unstyled">
+            <li><a class="link-secondary" href="/PMBackend/frontend/paginas/index.html">Pagina principal</a></li>
+            <li><a class="link-secondary" href="#link_polit">Políticas de privacidad</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 text-center text-lg-start d-flex flex-column align-items-center order-first align-items-lg-start order-lg-last item social">
+          <div class="fw-bold d-flex align-items-center mb-2">
+            <span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center bs-icon me-2" style="--bs-primary: #007443;--bs-primary-rgb: 0,116,67;">
+              <!-- SVG icon -->
+            </span>
+            <span>Papasito's&nbsp;</span>
+          </div>
+          <p class="text-muted copyright">Papasito's Mechanics: Los mejores en mantenimiento y reparaciones</p>
+        </div>
+      </div>
+      <hr>
+      <div class="d-flex justify-content-between align-items-center pt-3">
+        <p class="text-muted mb-0">Copyright © 2025 Papasito's Mechanics</p>
+        <!-- ...redes sociales... -->
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/PMBackend/frontend/paginas/assets/js/script.min.js?h=bfb49eee47f0544059cc5a9c6945ad45"></script>
+</body>
+</html>

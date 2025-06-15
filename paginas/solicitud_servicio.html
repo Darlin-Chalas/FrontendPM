@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en" data-bss-forced-theme="light" style="background: white;">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Pagina de solicitud de servicios</title>
+  <meta name="description" content="realice su solicitud de servicios aquí!">
+  <link rel="icon" type="image/png" sizes="499x499" href="/PMBackend/frontend/paginas/assets/img/favicon.png?h=9de85300ce36b5b57ce09c45939de319">
+  <link rel="icon" type="image/png" sizes="499x499" href="/PMBackend/frontend/paginas/assets/img/favicon.png?h=9de85300ce36b5b57ce09c45939de319" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/PMBackend/frontend/paginas/assets/css/styles.min.css?h=498d9d766cf55b8adaa45fc5e837e1eb">
+  <link rel="stylesheet" href="/PMBackend/frontend/paginas/css/solicitud.css">
+</head>
+
+<body style="margin-top: 30px;font-size: 20px;overflow-x: hidden;background: white;">
+  <!-- Botón de regreso a la página principal -->
+  <a href="/PMBackend/frontend/paginas/pagina_principal.html" 
+     class="btn btn-success position-absolute top-0 start-0 m-3 px-4 py-2 shadow rounded-pill d-flex align-items-center"
+     style="z-index: 1050; font-weight: bold; font-size: 1.1rem;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-house-door me-2" viewBox="0 0 16 16">
+      <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 2 7.5V14a1 1 0 0 0 1 1h3.5a.5.5 0 0 0 .5-.5V11a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v3.5a.5.5 0 0 0 .5.5H13a1 1 0 0 0 1-1V7.5a.5.5 0 0 0-.146-.354l-6-6zM13 14H9.5V11a2 2 0 0 0-2-2h-1a2 2 0 0 0-2 2v3H3V7.707l5-5 5 5V14z"/>
+    </svg>
+    Página principal
+  </a>
+
+    <div class="py-2">
+    <h1 style="font-size:36px;font-weight:bold;text-align:center;">Orden de servicio</h1>
+    <p style="text-align:center;font-size:16px;font-weight:bold;">Mecánica automotriz<br>Mantenimiento y reparación</p>
+  </div>
+  <form method="post" action="http://localhost:3000/registrar_solicitud">
+  <div class="container-fluid py-4 py-xl-5">
+    <div class="row gy-4 row-cols-1 row-cols-md-2">
+      <div class="col">
+        <div>
+          <div class="py-4 pb-4 pt-5 mt-2" style="padding-top:50px;">
+            <label class="form-label" style="width: 8%;">Marca:</label>
+            <input type="text" name="Marca" style="width: 91.3%;overflow-x: hidden;border-top-style: none;border-right-style: none;border-bottom-width: 1px;border-left-style: none;">
+            <label class="form-label" style="width: 10%;">Modelo:</label>
+            <input type="text" name="Modelo" style="width: 39%;overflow-x: hidden;border-top-style: none;border-right-style: none;border-bottom-width: 1px;border-left-style: none;">
+            <label class="form-label" style="width: 7%;">Color:</label>
+            <select name="Color" style="width: 41.8%;overflow-x: hidden;border-top-style: none;border-right-style: none;border-bottom-width: 1px;border-left-style: none;" field="Color">
+              <option value="">Otro</option>
+              <option value="Blanco">Blanco</option>
+              <option value="Negro">Negro</option>
+              <option value="Gris">Gris</option>
+              <option value="Plata">Plata</option>
+              <option value="Rojo">Rojo</option>
+              <option value="Azul">Azul</option>
+              <option value="Verde">Verde</option>
+              <option value="Amarillo">Amarillo</option>
+              <option value="Naranja">Naranja</option>
+              <option value="Marrón">Marrón</option>
+              <option value="Beige">Beige</option>
+              <option value="Vino">Vino</option>
+              <option value="Dorado">Dorado</option>
+              <option value="Morado">Morado</option>
+            </select>
+            <label class="form-label" style="width: 14%;">Kilometraje:</label>
+            <input type="text" name="Kilometraje" style="width: 35%;overflow-x: hidden;border-top-style: none;border-right-style: none;border-bottom-width: 1px;border-left-style: none;">
+            <label class="form-label" style="width: 7.4%;">Placa:</label>
+            <input type="text" name="Placas" style="width: 41.4%;overflow-x: hidden;border-top-style: none;border-right-style: none;border-bottom-width: 1px;border-left-style: none;">
+            <label class="form-label" style="width: 19.5%;">Numero de serie:</label>
+            <input type="text" name="NumeroDeSerie" style="width: 79.7%;overflow-x: hidden;border-top-style: none;border-right-style: none;border-bottom-width: 1px;border-left-style: none;">
+            <div style="width:100%;display:flex;border-width:2px;">
+              <div style="width:46%;">
+                <label class="form-label">Ingreso en grua:</label>
+              </div>
+              <div style="width:54%;height:40px;color:var(--bs-warning);display:flex;" class="ps-5">
+                <div class="form-check" style="margin-right:10px;">
+                  <input type="radio" class="form-check-input" id="grua-si" name="ingreso_grua" value="Si" style="background: white;">
+                  <label class="form-check-label" for="grua-si" style="color:var(--bs-dark);">Si</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" id="grua-no" name="ingreso_grua" value="No" style="background: white;">
+                  <label class="form-check-label" for="grua-no" style="border-color:var(--bs-warning);color:var(--bs-dark);">No</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div>
+          <div class="py-4">
+            <h4>Datos del cliente</h4>
+            <label class="form-label" style="width: 9%;">Ingreso:</label>
+            <input type="text" name="ingreso" style="width: 90.2%;overflow-x: hidden;border-top-style: none;border-right-style: none;border-bottom-width: 1px;border-left-style: none;">
+            <label class="form-label" style="width: 8%;">Salida:</label>
+            <input type="text" name="salida" style="width: 91.3%;overflow-x: hidden;border-top-style: none;border-right-style: none;border-bottom-width: 1px;border-left-style: none;">
+            <label class="form-label" style="width: 10%;">Nombre:</label>
+            <input type="text" name="nombre" style="width: 89.2%;overflow-x: hidden;border-top-style: none;border-right-style: none;border-bottom-width: 1px;border-left-style: none;">
+            <label class="form-label" style="width: 11%;">Teléfono:</label>
+            <input type="text" name="telefono" style="width: 88.2%;overflow-x: hidden;border-top-style: none;border-right-style: none;border-bottom-width: 1px;border-left-style: none;">
+            <label class="form-label" style="width: 8%;">Email:</label>
+            <input type="text" name="email" style="width: 91.2%;overflow-x: hidden;border-top-style: none;border-right-style: none;border-bottom-width: 1px;border-left-style: none;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;background:rgb(248,248,248);">
+    <h1 class="fw-bolder" style="font-size:21.88px;letter-spacing:-0.9px;background:rgb(217,217,217);">TRABAJO A REALIZAR</h1>
+    <textarea name="trabajo_realizar" style="position:relative;display:inline-grid;height:100%;width:100%;background:rgb(248,248,248);border-style:none;"></textarea>
+    <h1 class="fw-bolder" style="font-size:21.88px;letter-spacing:-0.9px;background:rgb(217,217,217);">OBSERVACIONES</h1>
+  </div>
+  <div class="text-center py-4">
+    <ul class="list-inline text-center" style="display:block;">
+      <li class="list-inline-item text-center d-inline-block list-inline-item col-12 col-md-4" style="display:none;width:100%;">
+        <img class="me-5 hover img-button-one" src="/PMBackend/frontend/paginas/assets/img/1.png?h=0fea4e2c52264944e65c708b1d5bd173" style="width:59px;height:50px;">
+        <img class="me-5 hover img-button-two" src="/PMBackend/frontend/paginas/assets/img/2.png?h=0fea4e2c52264944e65c708b1d5bd173" style="width:59px;height:50px;">
+        <img class="me-5 hover img-button-three" src="/PMBackend/frontend/paginas/assets/img/3.png?h=0fea4e2c52264944e65c708b1d5bd173" style="width:59px;height:50px;" >
+        <img class="me-5 hover img-button-four" src="/PMBackend/frontend/paginas/assets/img/4.png?h=0fea4e2c52264944e65c708b1d5bd173" style="width:59px;height:50px;">
+        <img class="me-5 hover img-button-five" src="/PMBackend/frontend/paginas/assets/img/5.png?h=0fea4e2c52264944e65c708b1d5bd173" style="width:59px;height:50px;">
+        <img class="me-5 hover img-button-six" src="/PMBackend/frontend/paginas/assets/img/6.png?h=0fea4e2c52264944e65c708b1d5bd173" style="width:56px;height:52px;">
+        <img class="me-5 hover img-button-seven" src="/PMBackend/frontend/paginas/assets/img/7.png?h=0fea4e2c52264944e65c708b1d5bd173" style="width:59px;height:50px;">
+        <img class="me-5 hover img-button-eight" src="/PMBackend/frontend/paginas/assets/img/8.png?h=0fea4e2c52264944e65c708b1d5bd173" style="width:59px;height:50px;">
+        <img class="me-5 hover img-button-nine" src="/PMBackend/frontend/paginas/assets/img/9.png?h=0fea4e2c52264944e65c708b1d5bd173" style="width:59px;height:50px;">
+        <img class="me-5 hover img-button-ten" src="/PMBackend/frontend/paginas/assets/img/10.png?h=0fea4e2c52264944e65c708b1d5bd173" style="width:59px;height:50px;">
+      </li>
+    </ul>
+  </div>
+  <div class="container-fluid py-4 py-xl-5 pt-xxl-5 pe-xxl-0 ps-xxl-0" style="width:100%;padding:24px 0px;">
+    <h1 class="fw-bold text-center" style="font-size:21.88px;letter-spacing:-0.9px;background:rgb(217,217,217);position:relative;top:33px;display:block;width:100%;">INVENTARIO</h1>
+    <div class="row gy-4 row-cols-1 row-cols-md-3" style="margin:0px;">
+      <div class="col" style="background:rgb(248,248,248);">
+        <div class="py-4">
+          <div class="d-flex align-items-center mb-2">
+            <label class="form-label mb-0" style="width:87%;font-size:19px;">Gato</label>
+            <input class="inv-checkbox-1" type="checkbox" name="inventario_gato" value="si" style="width:13%;height:24px;">
+          </div>
+          <div class="d-flex align-items-center mb-2">
+            <label class="form-label mb-0" style="width:87%;font-size:19px;">Herramientas</label>
+            <input class="inv-checkbox-2" type="checkbox" name="inventario_herramientas" value="si" style="width:13%;height:24px;">
+          </div>
+          <div class="d-flex align-items-center mb-2">
+            <label class="form-label mb-0" style="width:87%;font-size:19px;">Triángulos</label>
+            <input class="inv-checkbox-3" type="checkbox" name="inventario_triangulos" value="si" style="width:13%;height:24px;">
+          </div>
+          <div class="d-flex align-items-center mb-2">
+            <label class="form-label mb-0" style="width:87%;font-size:19px;">Tapetes</label>
+            <input class="inv-checkbox-4" type="checkbox" name="inventario_tapetes" value="si" style="width:13%;height:24px;">
+          </div>
+          <div class="d-flex align-items-center mb-2">
+            <label class="form-label mb-0" style="width:87%;font-size:19px;">Llanta refacción</label>
+            <input class="inv-checkbox-5" type="checkbox" name="inventario_llanta_refaccion" value="si" style="width:13%;height:24px;">
+          </div>
+          <div class="d-flex align-items-center mb-2">
+            <label class="form-label mb-0" style="width:87%;font-size:19px;">Extintor</label>
+            <input class="inv-checkbox-6" type="checkbox" name="inventario_extintor" value="si" style="width:13%;height:24px;">
+          </div>
+        </div>
+      </div>
+      <div class="col" style="background:rgb(248,248,248);">
+        <div class="py-4">
+          <div class="d-flex align-items-center mb-2">
+            <label class="form-label mb-0" style="width:87%;font-size:19px;">Antena</label>
+            <input class="inv-checkbox-7" type="checkbox" name="inventario_antena" value="si" style="width:13%;height:24px;">
+          </div>
+          <div class="d-flex align-items-center mb-2">
+            <label class="form-label mb-0" style="width:87%;font-size:19px;">Emblemas</label>
+            <input class="inv-checkbox-8" type="checkbox" name="inventario_emblemas" value="si" style="width:13%;height:24px;">
+          </div>
+          <div class="d-flex align-items-center mb-2">
+            <label class="form-label mb-0" style="width:87%;font-size:19px;">Tapetes de rueda</label>
+            <input class="inv-checkbox-9" type="checkbox" name="inventario_tapetes_rueda" value="si" style="width:13%;height:24px;">
+          </div>
+          <div class="d-flex align-items-center mb-2">
+            <label class="form-label mb-0" style="width:87%;font-size:19px;">Cables</label>
+            <input class="inv-checkbox-10" type="checkbox" name="inventario_cables" value="si" style="width:13%;height:24px;">
+          </div>
+          <div class="d-flex align-items-center mb-2">
+            <label class="form-label mb-0" style="width:87%;font-size:19px;">Estéreo</label>
+            <input class="inv-checkbox-11" type="checkbox" name="inventario_estereo" value="si" style="width:13%;height:24px;">
+          </div>
+          <div class="d-flex align-items-center mb-2">
+            <label class="form-label mb-0" style="width:87%;font-size:19px;">Encendedor</label>
+            <input class="inv-checkbox-12" type="checkbox" name="inventario_encendedor" value="si" style="width:13%;height:24px;">
+          </div>
+        </div>
+      </div>
+      <div class="col justify-content-center align-items-center" style="display:flex;text-align:center;">
+        <img src="/PMBackend/frontend/paginas/assets/img/Fuel.png?h=0fea4e2c52264944e65c708b1d5bd173" width="293" height="251">
+      </div>
+    </div>
+  </div>
+  <h1 class="fw-bold text-center" style="font-size:21.88px;letter-spacing:-0.9px;display:block;width:100%;">Daños preexistentes del vehículo&nbsp;</h1>
+  <div class="justify-content-center damage-section py-4" style="display: flex;margin-top: 20px;">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 vw-100">
+      <div class="col">
+        <div>
+          <h1 style="font-size: 19px;">Lado Derecho</h1>
+          <img class="object-fit-cover" src="/PMBackend/frontend/paginas/assets/img/Derecho.jpg?h=0fea4e2c52264944e65c708b1d5bd173" style="width: 100%;height: 100%;">
+        </div>
+      </div>
+      <div class="col">
+        <div>
+          <h1 style="font-size: 19px;">Frente</h1>
+          <img class="object-fit-cover" style="width: 69%;" src="/PMBackend/frontend/paginas/assets/img/Frente.jpg?h=0fea4e2c52264944e65c708b1d5bd173">
+        </div>
+      </div>
+      <div class="col">
+        <div>
+          <h1 style="font-size: 19px;">Detrás</h1>
+          <img class="object-fit-cover" style="width: 69%;" src="/PMBackend/frontend/paginas/assets/img/Trasero.jpg?h=0fea4e2c52264944e65c708b1d5bd173">
+        </div>
+      </div>
+      <div class="col">
+        <div>
+          <h1 style="font-size: 19px;">Lado Izquierdo</h1>
+          <img class="object-fit-cover" style="width: 100%;" src="/PMBackend/frontend/paginas/assets/img/Izquierdo.jpg?h=0fea4e2c52264944e65c708b1d5bd173">
+        </div>
+      </div>
+    </div>
+  </div>
+      <!--un botoncito bonito-->
+      <div class="text-center py-4">
+      <button type="submit"
+        class="btn btn-success px-4 py-2 shadow rounded-pill d-flex align-items-center mx-auto"
+        style="font-weight: bold; font-size: 1.1rem; border: none;"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-car-front me-2" viewBox="0 0 16 16">
+      <path d="M4 9a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm8 1a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 12.5V13a2 2 0 0 0 2 2v-1a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v1a2 2 0 0 0 2-2v-.5a.5.5 0 0 0-.5-.5H2.5a.5.5 0 0 0-.5.5ZM3.5 3.5A2.5 2.5 0 0 1 6 1h4a2.5 2.5 0 0 1 2.5 2.5V6l.447 1.342A2 2 0 0 1 15 9.5V11a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-1.5a2 2 0 0 1 2.053-2.158L3.5 6V3.5Zm1 0V6h7V3.5A1.5 1.5 0 0 0 10 2H6A1.5 1.5 0 0 0 4.5 3.5ZM2.5 10a1 1 0 0 0-1 1V11h13v-.5a1 1 0 0 0-1-1h-11Z"/>
+    </svg>
+    Enviar solicitud
+  </button>
+</div>
+  </form>
+  <div class="firmaDiv">
+    <input type="text" style="width: 40%;margin-right: 5%;margin-left: 7%;border-style: none;border-bottom: 4.8px solid rgb(180,177,177) ;">
+    <input type="text" style="width: 40%;border-style: none;border-bottom: 4.8px solid rgb(180,177,177) ;">
+  </div>
+  <br><br><br><br><br><br><br><br><br><br>
+  <footer>
+    <div class="container py-4 py-lg-5">
+      <div class="row justify-content-center" style="box-shadow: 0px 0px;">
+        <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
+          <h3 class="fs-6">Políticas&nbsp;</h3>
+          <ul class="list-unstyled">
+            <li><a class="link-secondary" href="/PMBackend/frontend/paginas/politicas_privacidad.html">Políticas de privacidad</a></li>
+            <li><a class="link-secondary" href="/PMBackend/frontend/paginas/terminos_servicio.html">Términos de servicios</a></li>
+            <li><a class="link-secondary" href="/PMBackend/frontend/paginas/formulario_contacto.html">Formulario de contacto</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
+          <h3 class="fs-6">Links útiles</h3>
+          <ul class="list-unstyled">
+            <li><a class="link-secondary" href="/PMBackend/frontend/paginas/index.html">Pagina principal</a></li>
+            <li><a class="link-secondary" href="/PMBackend/frontend/paginas/solicitud_servicio.html">Solicitud de servicio</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 text-center text-lg-start d-flex flex-column align-items-center order-first align-items-lg-start order-lg-last item social">
+          <div class="fw-bold d-flex align-items-center mb-2">
+            <span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center bs-icon me-2" style="--bs-primary: #007443;--bs-primary-rgb: 0,116,67;">
+              <!-- SVG icon -->
+            </span>
+            <span>Papasito's&nbsp;</span>
+          </div>
+          <p class="text-muted copyright">Papasito's Mechanics: Los mejores en mantenimiento y reparaciones</p>
+        </div>
+      </div>
+      <hr>
+      <div class="d-flex justify-content-between align-items-center pt-3">
+        <p class="text-muted mb-0">Copyright © 2025 Papasito's Mechanics</p>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/PMBackend/frontend/paginas/assets/js/script.min.js?h=bfb49eee47f0544059cc5a9c6945ad45"></script>
+  <script src="/PMBackend/frontend/paginas/js/solicitud_servicio.js"></script>
+  </body>
+  </html>

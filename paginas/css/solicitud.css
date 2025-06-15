@@ -1,0 +1,20 @@
+.hover:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+}
+
+.hover:active {
+    transition: transform 0.1s ease;
+    transform: scale(1.1);
+}
+
+.hover:not(:hover) {
+    transition: transform 0.3s ease;
+    transform: scale(1);
+}
+
+.img-activa {
+  border: 3px solid #28a745;
+  box-shadow: 0 0 8px #28a745;
+  filter: brightness(1.1);
+}
