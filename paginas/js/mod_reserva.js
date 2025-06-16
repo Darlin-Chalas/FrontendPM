@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 li.className = 'list-group-item d-flex align-items-center';
 
                 li.innerHTML = `
-                    <span class="me-2">Vehículo: ${vehiculo.marca} | ${vehiculo.modelo} || | Fecha:</span>
+                    <span class="me-2">Vehículo: ${vehiculo.marca} ${vehiculo.modelo} | Fecha:</span>
                     <input type="date" class="form-control me-2" style="max-width: 200px;" value="${vehiculo.fecha_registro || ''}">
                     <button class="btn btn-primary">Modificar</button>
                 `;
@@ -60,4 +60,8 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             console.error('Error al obtener los vehículos:', error);
         });
+        document.getElementById('btn-volver').addEventListener('click', function() {
+            window.location.href = './pagina_principal.html';
+        });
 });
+
