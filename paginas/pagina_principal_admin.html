@@ -1,77 +1,77 @@
 <!DOCTYPE html>
 <html data-bs-theme="auto" lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-		<title>Pagina</title>
-		<meta name="description" content="realice su solicitud de servicios aquí!">
-			<script>
-			(function () {
-			  const getStoredTheme = () => localStorage.getItem("theme");
-			  const forcedTheme = document.documentElement.getAttribute("data-bss-forced-theme");
-			
-			  const getPreferredTheme = () => {
-			    if (forcedTheme) return forcedTheme;
-			    const storedTheme = getStoredTheme();
-			    if (storedTheme) return storedTheme;
-			    const htmlTheme = document.documentElement.getAttribute("data-bs-theme");
-			    return htmlTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-			  };
-			
-			  const applyTheme = (theme) => {
-			    const isAuto = theme === "auto";
-			    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-			    document.documentElement.setAttribute("data-bs-theme", isAuto && prefersDark ? "dark" : theme);
-			  };
-			
-			  const updateActiveThemeButton = (theme, skip = false) => {
-			    const switchers = [].slice.call(document.querySelectorAll(".theme-switcher"));
-			    if (!switchers.length) return;
-			
-			    document.querySelectorAll("[data-bs-theme-value]").forEach((el) => {
-			      el.classList.remove("active");
-			      el.setAttribute("aria-pressed", "false");
-			    });
-			
-			    for (const switcher of switchers) {
-			      const btn = switcher.querySelector(`[data-bs-theme-value="${theme}"]`);
-			      if (btn) {
-			        btn.classList.add("active");
-			        btn.setAttribute("aria-pressed", "true");
-			      }
-			    }
-			  };
-			
-			  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
-			    const storedTheme = getStoredTheme();
-			    if (storedTheme !== "light" && storedTheme !== "dark") {
-			      applyTheme(getPreferredTheme());
-			    }
-			  });
-			
-			  window.addEventListener("DOMContentLoaded", () => {
-			    const preferredTheme = getPreferredTheme();
-			    updateActiveThemeButton(preferredTheme);
-			
-			    document.querySelectorAll("[data-bs-theme-value]").forEach((btn) => {
-			      btn.addEventListener("click", (e) => {
-			        e.preventDefault();
-			        const selectedTheme = btn.getAttribute("data-bs-theme-value");
-			        localStorage.setItem("theme", selectedTheme);
-			        applyTheme(selectedTheme);
-			        updateActiveThemeButton(selectedTheme);
-			      });
-			    });
-			  });
-			
-			  applyTheme(getPreferredTheme());
-			})();
-			</script>
-		
-    <link rel="icon" type="image/png" sizes="499x499" href="/PMBackend/frontend/paginas/assets/img/favicon.png?h=9de85300ce36b5b57ce09c45939de319">
-    <link rel="icon" type="image/png" sizes="499x499" href="/PMBackend/frontend/paginas/assets/img/favicon.png?h=9de85300ce36b5b57ce09c45939de319" media="(prefers-color-scheme: dark)">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Pagina</title>
+        <meta name="description" content="realice su solicitud de servicios aquí!">
+            <script>
+            (function () {
+              const getStoredTheme = () => localStorage.getItem("theme");
+              const forcedTheme = document.documentElement.getAttribute("data-bss-forced-theme");
+            
+              const getPreferredTheme = () => {
+                if (forcedTheme) return forcedTheme;
+                const storedTheme = getStoredTheme();
+                if (storedTheme) return storedTheme;
+                const htmlTheme = document.documentElement.getAttribute("data-bs-theme");
+                return htmlTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+              };
+            
+              const applyTheme = (theme) => {
+                const isAuto = theme === "auto";
+                const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                document.documentElement.setAttribute("data-bs-theme", isAuto && prefersDark ? "dark" : theme);
+              };
+            
+              const updateActiveThemeButton = (theme, skip = false) => {
+                const switchers = [].slice.call(document.querySelectorAll(".theme-switcher"));
+                if (!switchers.length) return;
+            
+                document.querySelectorAll("[data-bs-theme-value]").forEach((el) => {
+                  el.classList.remove("active");
+                  el.setAttribute("aria-pressed", "false");
+                });
+            
+                for (const switcher of switchers) {
+                  const btn = switcher.querySelector(`[data-bs-theme-value="${theme}"]`);
+                  if (btn) {
+                    btn.classList.add("active");
+                    btn.setAttribute("aria-pressed", "true");
+                  }
+                }
+              };
+            
+              window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+                const storedTheme = getStoredTheme();
+                if (storedTheme !== "light" && storedTheme !== "dark") {
+                  applyTheme(getPreferredTheme());
+                }
+              });
+            
+              window.addEventListener("DOMContentLoaded", () => {
+                const preferredTheme = getPreferredTheme();
+                updateActiveThemeButton(preferredTheme);
+            
+                document.querySelectorAll("[data-bs-theme-value]").forEach((btn) => {
+                  btn.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    const selectedTheme = btn.getAttribute("data-bs-theme-value");
+                    localStorage.setItem("theme", selectedTheme);
+                    applyTheme(selectedTheme);
+                    updateActiveThemeButton(selectedTheme);
+                  });
+                });
+              });
+            
+              applyTheme(getPreferredTheme());
+            })();
+            </script>
+        
+    <link rel="icon" type="image/png" sizes="499x499" href="./assets/img/favicon.png">
+    <link rel="icon" type="image/png" sizes="499x499" href="./assets/img/favicon.png" media="(prefers-color-scheme: dark)">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/PMBackend/frontend/paginas/assets/css/styles.min.css?h=498d9d766cf55b8adaa45fc5e837e1eb">
+    <link rel="stylesheet" href="./assets/css/styles.min.css">
 </head>
 <body>
     <header></header>
@@ -125,10 +125,10 @@
                     </div>
                     <div class="col-md-6" style="scroll-behavior: smooth; padding: 1rem; overflow: scroll; overflow-x: auto; max-height: 630px;">
 
-						<!--Pieza 1-->
+                        <!--Pieza 1-->
                         <div class="text-center pieza position-relative mb-4">
                             <div style="position: relative;">
-                                <img class="img-thumbnail object-fit-contain" style="width: 100%; height: 250px;" src="/PMBackend/frontend/paginas/assets/img/1.png">
+                                <img class="img-thumbnail object-fit-contain" style="width: 100%; height: 250px;" src="./assets/img/1.png">
                                 <span id="contador1" class="badge position-absolute top-0 end-0 m-2" style="background: #305252;">0</span>
                             </div>
                             <div class="d-flex justify-content-center align-items-center gap-2 mt-2">
@@ -137,10 +137,10 @@
                             </div>
                         </div>
 
-						<!--Pieza 2-->
-						<div class="text-center pieza position-relative mb-4">
+                        <!--Pieza 2-->
+                        <div class="text-center pieza position-relative mb-4">
                             <div style="position: relative;">
-                                <img class="img-thumbnail object-fit-contain" style="width: 100%; height: 250px;" src="/PMBackend/frontend/paginas/assets/img/2.png">
+                                <img class="img-thumbnail object-fit-contain" style="width: 100%; height: 250px;" src="./assets/img/2.png">
                                 <span id="contador2" class="badge position-absolute top-0 end-0 m-2" style="background: #305252;">0</span>
                             </div>
                             <div class="d-flex justify-content-center align-items-center gap-2 mt-2">
@@ -149,10 +149,10 @@
                             </div>
                         </div>
                         
-						<!--Pieza 3-->
-						<div class="text-center pieza position-relative mb-4">
+                        <!--Pieza 3-->
+                        <div class="text-center pieza position-relative mb-4">
                             <div style="position: relative;">
-                                <img class="img-thumbnail object-fit-contain" style="width: 100%; height: 250px;" src="/PMBackend/frontend/paginas/assets/img/3.png">
+                                <img class="img-thumbnail object-fit-contain" style="width: 100%; height: 250px;" src="./assets/img/3.png">
                                 <span id="contador3" class="badge position-absolute top-0 end-0 m-2" style="background: #305252;">0</span>
                             </div>
                             <div class="d-flex justify-content-center align-items-center gap-2 mt-2">
@@ -161,10 +161,10 @@
                             </div>
                         </div>
 
-						<!--Pieza 4-->
-						<div class="text-center pieza position-relative mb-4">
+                        <!--Pieza 4-->
+                        <div class="text-center pieza position-relative mb-4">
                             <div style="position: relative;">
-                                <img class="img-thumbnail object-fit-contain" style="width: 100%; height: 250px;" src="/PMBackend/frontend/paginas/assets/img/4.png">
+                                <img class="img-thumbnail object-fit-contain" style="width: 100%; height: 250px;" src="./assets/img/4.png">
                                 <span id="contador4" class="badge position-absolute top-0 end-0 m-2" style="background: #305252;">0</span>
                             </div>
                             <div class="d-flex justify-content-center align-items-center gap-2 mt-2">
@@ -173,10 +173,10 @@
                             </div>
                         </div>
 
-						<!--Pieza 5-->
-						<div class="text-center pieza position-relative mb-4">
+                        <!--Pieza 5-->
+                        <div class="text-center pieza position-relative mb-4">
                             <div style="position: relative;">
-                                <img class="img-thumbnail object-fit-contain" style="width: 100%; height: 250px;" src="/PMBackend/frontend/paginas/assets/img/5.png">
+                                <img class="img-thumbnail object-fit-contain" style="width: 100%; height: 250px;" src="./assets/img/5.png">
                                 <span id="contador5" class="badge position-absolute top-0 end-0 m-2" style="background: #305252;">0</span>
                             </div>
                             <div class="d-flex justify-content-center align-items-center gap-2 mt-2">
@@ -185,10 +185,10 @@
                             </div>
                         </div>
 
-						<!--Pieza 6-->
-						<div class="text-center pieza position-relative mb-4">
+                        <!--Pieza 6-->
+                        <div class="text-center pieza position-relative mb-4">
                             <div style="position: relative;">
-                                <img class="img-thumbnail object-fit-contain" style="width: 100%; height: 250px;" src="/PMBackend/frontend/paginas/assets/img/6.png">
+                                <img class="img-thumbnail object-fit-contain" style="width: 100%; height: 250px;" src="./assets/img/6.png">
                                 <span id="contador6" class="badge position-absolute top-0 end-0 m-2" style="background: #305252;">0</span>
                             </div>
                             <div class="d-flex justify-content-center align-items-center gap-2 mt-2">
@@ -197,10 +197,10 @@
                             </div>
                         </div>
 
-						<!--Pieza 7-->
-						<div class="text-center pieza position-relative mb-4">
+                        <!--Pieza 7-->
+                        <div class="text-center pieza position-relative mb-4">
                             <div style="position: relative;">
-                                <img class="img-thumbnail object-fit-contain" style="width: 100%; height: 250px;" src="/PMBackend/frontend/paginas/assets/img/7.png">
+                                <img class="img-thumbnail object-fit-contain" style="width: 100%; height: 250px;" src="./assets/img/7.png">
                                 <span id="contador7" class="badge position-absolute top-0 end-0 m-2" style="background: #305252;">0</span>
                             </div>
                             <div class="d-flex justify-content-center align-items-center gap-2 mt-2">
@@ -209,10 +209,10 @@
                             </div>
                         </div>
 
-							<!--Pieza 8-->
-						<div class="text-center pieza position-relative mb-4">
+                        <!--Pieza 8-->
+                        <div class="text-center pieza position-relative mb-4">
                             <div style="position: relative;">
-                                <img class="img-thumbnail object-fit-contain" style="width: 100%; height: 250px;" src="/PMBackend/frontend/paginas/assets/img/8.png">
+                                <img class="img-thumbnail object-fit-contain" style="width: 100%; height: 250px;" src="./assets/img/8.png">
                                 <span id="contador8" class="badge position-absolute top-0 end-0 m-2" style="background: #305252;">0</span>
                             </div>
                             <div class="d-flex justify-content-center align-items-center gap-2 mt-2">
@@ -221,10 +221,10 @@
                             </div>
                         </div>
 
-							<!--Pieza 9-->
-						<div class="text-center pieza position-relative mb-4">
+                        <!--Pieza 9-->
+                        <div class="text-center pieza position-relative mb-4">
                             <div style="position: relative;">
-                                <img class="img-thumbnail object-fit-contain" style="width: 100%; height: 250px;" src="/PMBackend/frontend/paginas/assets/img/9.png">
+                                <img class="img-thumbnail object-fit-contain" style="width: 100%; height: 250px;" src="./assets/img/9.png">
                                 <span id="contador9" class="badge position-absolute top-0 end-0 m-2" style="background: #305252;">0</span>
                             </div>
                             <div class="d-flex justify-content-center align-items-center gap-2 mt-2">
@@ -233,10 +233,10 @@
                             </div>
                         </div>
 
-							<!--Pieza 10-->
-						<div class="text-center pieza position-relative mb-4">
+                        <!--Pieza 10-->
+                        <div class="text-center pieza position-relative mb-4">
                             <div style="position: relative;">
-                                <img class="img-thumbnail object-fit-contain" style="width: 100%; height: 250px;" src="/PMBackend/frontend/paginas/assets/img/10.png">
+                                <img class="img-thumbnail object-fit-contain" style="width: 100%; height: 250px;" src="./assets/img/10.png">
                                 <span id="contador10" class="badge position-absolute top-0 end-0 m-2" style="background: #305252;">0</span>
                             </div>
                             <div class="d-flex justify-content-center align-items-center gap-2 mt-2">
@@ -244,7 +244,7 @@
                                 <button class="btn btn-success btn-sm" type="button" onclick="sumar('contador10')" style="width: 50%; font-size: 21px;">+</button>
                             </div>
                         </div>
-						
+                        
                         <button class="btn btn-primary position-sticky bottom-0 start-50 translate-middle-x my-3 z-3" type="button" style="background: #305252; border-radius: 10px; color: white;">
                             Finalizar
                         </button>
@@ -252,13 +252,13 @@
                 </div>
             </div>
         </section>
-		<br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br>
     </main>
-	
+    
     <footer></footer>
     <!-- Botón centralizado fuera de todo el contenido -->
     <div style="position: fixed; left: 50%; bottom: 40px; transform: translateX(-50%); z-index: 9999;">
-        <a href="/PMBackend/frontend/paginas/Interfaz_facturacion.html"
+        <a href="./Interfaz_facturacion.html"
            class="btn btn-success btn-lg px-5 shadow"
            style="border-radius: 16px; font-size: 1.4rem; background: linear-gradient(90deg, #2e7d32 60%, #43a047 100%); box-shadow: 0 4px 24px rgba(46,125,50,0.2);">
             Ir a Facturación
@@ -266,6 +266,6 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/PMBackend/frontend/paginas/assets/js/script.min.js?h=bfb49eee47f0544059cc5a9c6945ad45"></script>
+    <script src="./assets/js/script.min.js"></script>
 </body>
 </html>
