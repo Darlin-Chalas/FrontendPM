@@ -4,7 +4,7 @@ window.arrayInv = Array(12).fill("0"); // Cadena para manejar el inventario
 document.addEventListener('DOMContentLoaded', function() {
     // Verifica si el usuario está autenticado
     if (localStorage.getItem('isLoggedIn') !== 'true') {
-        window.location.href = '/PMBackend/frontend/index.html'; // Redirige al login si no está autenticado
+        window.location.href = "./index.html"; // Redirige al login si no está autenticado
     } else {
         // Si está autenticado, muestra el nombre del cliente
         const nombreCliente = localStorage.getItem('nombre_cliente');
@@ -117,7 +117,7 @@ function inicializarInventario() {
 // Manejo de autenticación y bienvenida
 document.addEventListener('DOMContentLoaded', function () {
     if (localStorage.getItem('isLoggedIn') !== 'true') {
-        window.location.href = '/PMBackend/frontend/index.html';
+        window.location.href = "./index.html";
         return;
     }
 
@@ -167,13 +167,13 @@ document.querySelector('form').addEventListener('submit', async function (e) {
     data.observaciones = CrearCadenaDeObservaciones();
 
     setTimeout(() => {
-        fetch('http://localhost:3000/vehiculo_id')
+        fetch('https://backendpm-any7.onrender.com/vehiculo_id')
             .then(response => response.json())
             .then(data => {
                 if (data && data.id_vehiculo) {
                     const idVehiculoNum = Number(data.id_vehiculo) + 1;
                     localStorage.setItem('id_vehiculo', idVehiculoNum.toString());
-                    // window.location.href = '/PMBackend/frontend/paginas/solicitud_servicio.html';
+                    // window.location.href = './paginas/solicitud_servicio.html';
                 } else {
                     console.error('No se pudo obtener el ID del vehículo.');
                     alert('Error al obtener el ID del vehículo. Por favor, inténtelo de nuevo más tarde.');
@@ -206,6 +206,4 @@ document.querySelector('form').addEventListener('submit', async function (e) {
             return;
         }
     }, 10000);
-
-    // Obtener id_vehiculo después de 10 segundos
 });

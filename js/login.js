@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
           const forgot = document.querySelector('.forgot');
           if (btnAnimate) btnAnimate.classList.toggle('btn-animate-grow');
           if (welcome) {
-            fetch('http://localhost:3000/cliente_nombre?correo=' + emailIngresado)
+            fetch('https://backendpm-any7.onrender.com/cliente_nombre?correo=' + emailIngresado)
             .then(response => response.json())
             .then(data => {
               clienteNombre = data.nombre;
@@ -99,9 +99,9 @@ document.addEventListener('DOMContentLoaded', function() {
       const correo = localStorage.getItem('correo_cliente') || window.emailIngresado;
       const usuario = usuarios.find(u => u.correo === correo);
       if (usuario && usuario.tipo_usuario == '0') {
-        window.location.href = "/PMBackend/frontend/paginas/pagina_principal.html";
+        window.location.href = "./paginas/pagina_principal.html";
       } else {
-        window.location.href = "/PMBackend/frontend/paginas/pagina_principal_admin.html";
+        window.location.href = "./paginas/pagina_principal_admin.html";
       }
     });
   }
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
       //Si pasa la validación, continúa con el registro
       else {
         try {
-          const response = await fetch('http://localhost:3000/api/registrar_usuario', {
+          const response = await fetch('https://backendpm-any7.onrender.com/api/registrar_usuario', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // Hacemos una petición GET al backend
-fetch('http://localhost:3000/usuarios')
+fetch('https://backendpm-any7.onrender.com/usuarios')
   .then(response => response.json())
   .then(data => {
     // Guardamos los usuarios en la lista
@@ -196,7 +196,7 @@ fetch('http://localhost:3000/usuarios')
 //Aqui obtenemos el id y correo para
 //verificar dentro del formulario de
 //registro si concuerdan el id y el correo
-fetch('http://localhost:3000/clientes')
+fetch('https://backendpm-any7.onrender.com/clientes')
   .then(response => response.json())
     .then(data => {
       // Guardamos los clientes en la lista
