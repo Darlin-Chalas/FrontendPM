@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Verifica si el usuario está autenticado
   if (localStorage.getItem('isLoggedIn') !== 'true') {
-    window.location.href = './index.html'; // Redirige al login si no está autenticado
+    window.location.href = 'https://darlin-chalas.github.io/FrontendPM/'; // Redirige al login si no está autenticado
   } else {
     // Si está autenticado, muestra el nombre del cliente
     const nombreCliente = localStorage.getItem('nombre_cliente');
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     localStorage.removeItem('nombre_cliente');
     localStorage.removeItem('correo_cliente');
     localStorage.removeItem('isLoggedIn');
-    window.location.href = './index.html'; // Redirige al login
+    window.location.href = 'https://darlin-chalas.github.io/FrontendPM/'; // Redirige al login
   });
 }
 });
