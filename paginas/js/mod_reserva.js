@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
         alert('No se encontró el id del cliente en localStorage.');
         return;
     }
+    console.log("un gato");
 
     fetch(`https://backendpm-any7.onrender.com/vehiculos?id_cliente=${id_cliente}`)
         .then(response => response.json())
