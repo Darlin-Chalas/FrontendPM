@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
         alert('No se encontró el id del cliente en localStorage.');
         return;
     }
-    console.log("un gato");
 
     fetch(`https://backendpm-any7.onrender.com/vehiculos?id_cliente=${id_cliente}`)
         .then(response => response.json())
@@ -14,22 +13,55 @@ document.addEventListener('DOMContentLoaded', function() {
             window.vehiculos = data;
             console.log('Vehículos del cliente:', window.vehiculos);
 
-            const lista = document.querySelector('.list-group');
-            lista.innerHTML = '';
+            const grid = document.querySelector('.vehiculos-grid');
+            grid.innerHTML = '';
+
+            function colorEspToEng(colorEsp) {
+                const colores = {
+                    'Blanco': 'white',
+                    'Negro': 'black',
+                    'Gris': 'gray',
+                    'Plata': 'silver',
+                    'Rojo': 'red',
+                    'Azul': 'blue',
+                    'Verde': 'green',
+                    'Amarillo': 'yellow',
+                    'Naranja': 'orange',
+                    'Marrón': 'brown',
+                    'Beige': 'beige',
+                    'Vino': 'maroon',
+                    'Dorado': 'gold',
+                    'Morado': 'purple'
+                };
+                return colores[colorEsp] || '#f0f0f0';
+            }
 
             window.vehiculos.forEach(vehiculo => {
-                const li = document.createElement('li');
-                li.className = 'list-group-item d-flex align-items-center';
+                const card = document.createElement('div');
+                card.className = 'vehiculo-card';
 
-                li.innerHTML = `
-                    <span class="me-2">Vehículo: ${vehiculo.marca} ${vehiculo.modelo} | Fecha:</span>
-                    <input type="date" class="form-control me-2" style="max-width: 200px;" value="${vehiculo.fecha_registro || ''}">
+                // Muestra el color como un campo visual, no como fondo
+                const colorEsp = vehiculo.color || '';
+                const colorEng = colorEspToEng(colorEsp);
+
+                card.innerHTML = `
+                    <div class="vehiculo-info" style="border-radius: 10px; padding: 10px; background-color: rgb(225, 225, 225);">
+                        <span><strong>Marca:</strong> ${vehiculo.marca || ''}</span>
+                        <span><strong>Modelo:</strong> ${vehiculo.modelo || ''}</span>
+                        <span><strong>Placa:</strong> ${vehiculo.placa || ''}</span>
+                        <span>
+                            <strong>Color:</strong> ${colorEsp}
+                            <span style="display:inline-block;width:18px;height:18px;border-radius:4px;margin-left:8px;vertical-align:middle;background:${colorEng};border:1px solid #ccc;"></span>
+                        </span>
+                        <span><strong>Fecha:</strong></span>
+                        <input type="date" class="form-control" value="${vehiculo.fecha_registro || ''}">
+                    </div>
                     <button class="btn btn-primary">Modificar</button>
                 `;
 
-                // Agrega el evento al botón
-                li.querySelector('button').addEventListener('click', function() {
-                    const nuevaFecha = li.querySelector('input[type="date"]').value;
+                // Evento para el botón
+                card.querySelector('button').addEventListener('click', function() {
+                    const nuevaFecha = card.querySelector('input[type="date"]').value;
                     if (!nuevaFecha) {
                         alert('Por favor selecciona una fecha.');
                         return;
@@ -54,14 +86,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                 });
 
-                lista.appendChild(li);
+                grid.appendChild(card);
             });
         })
         .catch(error => {
             console.error('Error al obtener los vehículos:', error);
         });
-        document.getElementById('btn-volver').addEventListener('click', function() {
-            window.location.href = './pagina_principal.html';
-        });
-});
 
+    document.getElementById('btn-volver').addEventListener('click', function() {
+        window.location.href = './pagina_principal.html';
+    });
+});
