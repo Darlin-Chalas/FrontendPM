@@ -14,21 +14,46 @@ document.addEventListener('DOMContentLoaded', function() {
             window.vehiculos = data;
             console.log('Vehículos del cliente:', window.vehiculos);
 
-            // Selecciona la lista y la limpia
             const lista = document.querySelector('.list-group');
             lista.innerHTML = '';
 
-            // Por cada vehículo, crea un elemento de la lista
             window.vehiculos.forEach(vehiculo => {
                 const li = document.createElement('li');
                 li.className = 'list-group-item d-flex align-items-center';
 
-                // Puedes mostrar la placa, modelo, etc.
                 li.innerHTML = `
                     <span class="me-2">Vehículo: ${vehiculo.placa || vehiculo.modelo || 'Sin datos'} | Fecha:</span>
-                    <input type="date" class="form-control me-2" style="max-width: 200px;">
+                    <input type="date" class="form-control me-2" style="max-width: 200px;" value="${vehiculo.fecha_registro || ''}">
                     <button class="btn btn-primary">Modificar</button>
                 `;
+
+                // Agrega el evento al botón
+                li.querySelector('button').addEventListener('click', function() {
+                    const nuevaFecha = li.querySelector('input[type="date"]').value;
+                    if (!nuevaFecha) {
+                        alert('Por favor selecciona una fecha.');
+                        return;
+                    }
+                    fetch('https://backendpm-any7.onrender.com/actualizar_fecha', {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            id_vehiculo: vehiculo.id_vehiculo,
+                            nueva_fecha: nuevaFecha
+                        })
+                    })
+                    .then(res => res.json())
+                    .then(res => {
+                        alert(res.message || 'Fecha actualizada');
+                    })
+                    .catch(err => {
+                        alert('Error al actualizar la fecha');
+                        console.error(err);
+                    });
+                });
+
                 lista.appendChild(li);
             });
         })
